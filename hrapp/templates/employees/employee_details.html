@@ -1,0 +1,9 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+  <section class="employee-details">
+    <h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
+    <h2>{{ employee.department_name }}</h2>
+  </section>
+
+{% endblock %}
