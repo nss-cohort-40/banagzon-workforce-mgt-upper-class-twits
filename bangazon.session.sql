@@ -7,3 +7,5 @@ select
         from hrapp_department d;
 
 insert into hrapp_employee (first_name, last_name, start_date, is_supervisor, department_id) values ("Jane", "Doe", 03/20/2005, False, 1);
+
+insert into hrapp_employee (first_name, last_name, start_date, is_supervisor, department_id) values ("John", "Smoth", 03/20/2005, False, 1);
