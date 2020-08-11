@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Departments</title>
+  </head>
+  <body>
+    <h1>Departments</h1>
+
+    <ol>
+      {% for department in all_departments %}
+      <li>
+          {{ department.department_name }}
+        </a>
+        Budget: {{department.department_budget}}
+      </li>
+      {% endfor %}
+    </ol>
+  </body>
+</html>
