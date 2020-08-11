@@ -14,6 +14,7 @@ def get_departments():
 
         db_cursor.execute("""
         select
+            d.id,
             d.department_name,
             d.department_budget
         from hrapp_department d

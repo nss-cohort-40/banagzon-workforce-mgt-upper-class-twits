@@ -28,8 +28,8 @@
           <input id="is_supervisor" type="text" name="is_supervisor">
       </fieldset>
       <fieldset>
-          <label for="department">Department: </label>
-          <select id="department" type="text" name="department">
+          <label for="department_id">Department: </label>
+          <select id="department_id" type="text" name="department_id">
                 {% for department in all_departments %}
                     <option value="{{ department.id }}">{{ department.department_name }}</option>
                 {% endfor %}
