@@ -19,7 +19,7 @@ class EmployeeComputer(models.Model):
         null=True, # Makes column nullable in DB
         blank=True, # Allows blank value on objects
         on_delete=models.CASCADE)
-    assigned_date = models.DateField(auto_now=False, auto_now_add=False)
-    unassigned_date = models.DateField(auto_now=False, auto_now_add=False)
+    assigned_date = models.DateField(null=True, auto_now=False, auto_now_add=False)
+    unassigned_date = models.DateField(null=True, auto_now=False, auto_now_add=False)
     
 
