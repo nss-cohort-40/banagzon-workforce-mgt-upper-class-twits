@@ -10,9 +10,10 @@
 
 <ol class="employee-list">
 {% for employee in employees %}
-    <li>
-        <h3>{{ employee.first_name }} {{ employee.last_name }}</h3>
-        <h5>{{ employee.department_name }}</h5>
+    <li class="employee-card">
+        <a class="details-link" href="{% url 'hrapp:employee' employee.id %}">
+        <h3 class="employee-name">{{ employee.first_name }} {{ employee.last_name }}</h3></a>
+        <h5 class="employee-department">{{ employee.department_name }}</h5>
     </li>
 {% endfor %}
 </ol>
