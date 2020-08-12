@@ -8,6 +8,7 @@
 {% block content %}
 <h1>Employees</h1>
 
+<a href="{% url 'hrapp:employee_form' %}">Add New Employee</a>
 <ol class="employee-list">
 {% for employee in employees %}
     <li class="employee-card">

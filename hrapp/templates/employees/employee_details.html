@@ -4,6 +4,15 @@
   <section class="employee-details">
     <h1>{{ employee.first_name }} {{ employee.last_name }}</h1>
     <h2>{{ employee.department_name }}</h2>
+    <p>Start Date: {{ employee.start_date }}</p>
+    <p>Supervisor: {{ employee.is_supervisor }}</p>
+  </section>
+
+  <section id="employee-actions" style="display:flex;">
+    <form action="{% url 'hrapp:employee_edit_form' employee.id %}" method="GET">
+            {% csrf_token %}
+            <button>Edit</button>
+        </form>
   </section>
 
 {% endblock %}
