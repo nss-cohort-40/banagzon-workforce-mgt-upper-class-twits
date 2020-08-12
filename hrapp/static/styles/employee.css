@@ -1,0 +1,15 @@
+.employee-list {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.employee-list > li {
+  padding: 1em;
+  box-shadow: 1px 1px 3px rgb(59, 59, 58);
+  margin: 5px;
+}
+
+.employee-list > li:hover {
+  box-shadow: 1px 1px 10px rgb(59, 59, 58);
+}

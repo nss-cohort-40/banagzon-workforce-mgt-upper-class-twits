@@ -1,13 +1,18 @@
 {% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/employee.css' %}" />
+{% endblock css %}
 
 {% block content %}
 <h1>Employees</h1>
 
-<ol>
+<ol class="employee-list">
 {% for employee in employees %}
     <li>
         <h3>{{ employee.first_name }} {{ employee.last_name }}</h3>
-        Department: {{ employee.department_name }}
+        <h5>{{ employee.department_name }}</h5>
     </li>
 {% endfor %}
 </ol>
