@@ -34,3 +34,9 @@ migrations
 
 #db location
 hrapp/views/connection.py
+
+bangazon.session.sqlite3
+
+hrapp.session.sqlite3
+
+michellequeries.session.sqlite3
