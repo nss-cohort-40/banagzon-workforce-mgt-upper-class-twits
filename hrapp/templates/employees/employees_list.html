@@ -1,13 +1,20 @@
 {% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/employee.css' %}" />
+{% endblock css %}
 
 {% block content %}
 <h1>Employees</h1>
 
-<ol>
+<a href="{% url 'hrapp:employee_form' %}">Add New Employee</a>
+<ol class="employee-list">
 {% for employee in employees %}
-    <li>
-        <h3>{{ employee.first_name }} {{ employee.last_name }}</h3>
-        Department: {{ employee.department_name }}
+    <li class="employee-card">
+        <a class="details-link" href="{% url 'hrapp:employee' employee.id %}">
+        <h3 class="employee-name">{{ employee.first_name }} {{ employee.last_name }}</h3></a>
+        <h5 class="employee-department">{{ employee.department_name }}</h5>
     </li>
 {% endfor %}
 </ol>
