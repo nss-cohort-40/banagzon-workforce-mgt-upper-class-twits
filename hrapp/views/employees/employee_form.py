@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from hrapp.models import Department
 from hrapp.models import Employee
 from ..connection import Connection
+from ..employees.employee_details import get_employee
 
 
 def get_departments():
@@ -34,7 +35,20 @@ def employee_form(request):
 
         return render(request, template, context)
 
-   
+@login_required
+def employee_edit_form(request, employee_id):
+
+    if request.method == 'GET':
+        employee = get_employee(employee_id)
+        departments = get_departments()
+
+        template = 'employees/employee_form.html'
+        context = {
+            'employee': employee,
+            'all_departments': departments
+        }
+
+        return render(request, template, context)
              
 
         
