@@ -1,1 +1,7 @@
 select * from hrapp_employee;
+
+insert into hrapp_department (department_name, department_budget) values ("Marketing", 56800);
+
+insert into hrapp_department (department_name, department_budget) values ("Sales", 39100);
+
+
