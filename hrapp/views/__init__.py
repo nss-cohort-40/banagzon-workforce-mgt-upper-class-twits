@@ -6,3 +6,4 @@ from .departments.department_form import department_form
 from .employees.employee_form import employee_form
 from .departments.department_list import department_list
 from .connection import Connection
+from .computers.computer_list import computer_list
