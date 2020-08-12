@@ -1,9 +1,7 @@
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from hrapp import views
 from .views import *
-from hrapp.models import departments
 
 app_name = 'hrapp'
 
