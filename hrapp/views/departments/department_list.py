@@ -6,8 +6,6 @@ from django.shortcuts import redirect
 from django.urls import reverse
 
 
-
-
 def department_list(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
@@ -18,8 +16,10 @@ def department_list(request):
             select
                 d.id,
                 d.department_name,
-                d.department_budget
+                d.department_budget,
+                e.department_id
             from hrapp_department d
+            left join hrapp_employee e ON e.department_id = d.id
             """)
 
             all_departments = []
@@ -31,7 +31,9 @@ def department_list(request):
                 department.department_name = row['department_name']
                 department.department_budget = row['department_budget']
 
-                all_departments.append(department)
+                if department.id not in all_departments:
+                    print(department.id)
+                    all_departments.append(department)
 
         template = 'departments/department_list.html'
         context = {
@@ -53,6 +55,6 @@ def department_list(request):
                     )
                 VALUES (?, ?)
                 """,
-                (form_data['department_name'], form_data['department_budget']))
+                              (form_data['department_name'], form_data['department_budget']))
 
             return redirect(reverse('hrapp:department_list'))
