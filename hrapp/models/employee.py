@@ -8,7 +8,7 @@ class Employee(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     start_date = models.DateField()
-    is_supervisor = models.BooleanField()
+    is_supervisor = models.BooleanField("Is employee a department supervivsor? If yes, check box.", default=False)
     department = models.ForeignKey(Department,
                                    related_name="Department",
                                    null=True,  # Makes column nullable in DB
