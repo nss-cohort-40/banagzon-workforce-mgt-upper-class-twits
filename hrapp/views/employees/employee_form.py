@@ -8,6 +8,7 @@ from hrapp.models import Employee
 from ..connection import Connection
 from ..employees.employee_details import get_employee
 
+
 def get_departments():
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
