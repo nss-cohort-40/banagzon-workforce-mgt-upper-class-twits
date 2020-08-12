@@ -1,0 +1,54 @@
+.employee-list {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.employee-list > li {
+  height: 150px;
+  width: 110px;
+  box-shadow: 1px 1px 3px rgb(59, 59, 58);
+  margin: 10px;
+}
+
+.employee-list > li:hover {
+  box-shadow: 1px 1px 10px rgb(59, 59, 58);
+}
+
+h3 {
+  margin: 5px 5px 10px 5px;
+  text-align: center;
+}
+
+h5 {
+  margin: 0;
+  text-align: center;
+}
+
+h5 {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.employee-card {
+  position: relative;
+}
+
+.details-link {
+  text-decoration: none;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.details-link:visited,
+.details-link:link {
+  color: rgb(59, 59, 58);
+}
+
+.employee-department {
+  position: relative;
+  top: 80px;
+}
