@@ -14,8 +14,16 @@
 
 <body>
 
-    {% block content %}
-    {% endblock %}
+    <nav id="site-nav">
+        <ol class="nav_list">
+            <li class="nav_list_route"><a href="{% url 'hrapp:employee_list' %}">Employees</a></li>
+        </ol>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
 
     {% block scripts %}
     {% endblock scripts %}
