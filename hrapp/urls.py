@@ -6,11 +6,13 @@ from .views import *
 from hrapp.models import departments
 
 app_name = 'hrapp'
+
 urlpatterns = [
     path('', home, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', logout_user, name='logout'),
     path('employees/', employee_list, name='employee_list'),
+    path('employees/employee_form', employee_form, name='employee_form'),
     path('departments/', department_list, name='department_list'),
     path('employees/<int:employee_id>/', employee_details, name='employee')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
