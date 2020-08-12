@@ -1,5 +1,5 @@
-from django.urls import path
-from django.conf.urls import include
+from django.urls import include, path
+from django.conf import settings
 from django.conf.urls.static import static
 from hrapp import views
 from .views import *
@@ -15,4 +15,4 @@ urlpatterns = [
     path('employees/employee_form', employee_form, name='employee_form'),
     path('departments/', department_list, name='department_list'),
     path('employees/<int:employee_id>/', employee_details, name='employee')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
