@@ -1,16 +1,16 @@
-{% extends 'shared/base.html' %}
-{% block content %}
+{% extends 'shared/base.html' %} {% block content %}
 
-  <h1>Departments</h1>
+<h1>Departments</h1>
 
-  <ol>
-    {% for department in all_departments %}
-    <li>
-        {{ department.department_name }}
-      </a>
-      Budget: {{department.department_budget}}
-    </li>
-    {% endfor %}
-  </ol>
+<ol>
+  {% for department in all_departments %}
+  <li>
+    <a href="{% url 'hrapp:department' department.id %}">
+      {{ department.department_name }}
+    </a>
+    Budget: {{department.department_budget}}
+  </li>
+  {% endfor %}
+</ol>
 
 {% endblock content %}
