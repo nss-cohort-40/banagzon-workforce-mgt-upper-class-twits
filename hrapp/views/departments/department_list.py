@@ -2,6 +2,10 @@ import sqlite3
 from django.shortcuts import render
 from hrapp.models import Department
 from ..connection import Connection
+from django.shortcuts import redirect
+from django.urls import reverse
+
+
 
 
 def department_list(request):
@@ -35,3 +39,20 @@ def department_list(request):
         }
 
         return render(request, template, context)
+
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+                INSERT INTO hrapp_department
+                (
+                    department_name, department_budget
+                    )
+                VALUES (?, ?)
+                """,
+                (form_data['department_name'], form_data['department_budget']))
+
+            return redirect(reverse('hrapp:department_list'))
