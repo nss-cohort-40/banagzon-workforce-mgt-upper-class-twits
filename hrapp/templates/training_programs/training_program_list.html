@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %} 
+{% block content %}
+
+<h1>Training Programs</h1>
+
+<ol>
+  {% for training_program in training_programs %}
+  <li>
+
+      {{ training_program.training_title }}
+    
+    {% comment %} Start Date: {{training_program.start_date}} {% endcomment %}
+
+    Maximum Number of Attendees: {{training_program.max_capacity}}
+  </li>
+  {% endfor %}
+</ol>
+
+{% endblock content %}
