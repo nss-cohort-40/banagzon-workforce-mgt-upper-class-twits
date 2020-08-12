@@ -17,5 +17,6 @@ urlpatterns = [
     path('departments/form', department_form, name='department_form'),
     path('departments/<int:department_id>',
          department_details, name='department'),
-    path('departments/', department_list, name='department_list')
+    path('departments/', department_list, name='department_list'),
+    path('computers/', computer_list, name='computer_list')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

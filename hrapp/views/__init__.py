@@ -7,3 +7,4 @@ from .employees.employee_form import employee_form, employee_edit_form
 from .departments.department_list import department_list
 from .departments.department_details import department_details
 from .connection import Connection
+from .computers.computer_list import computer_list
