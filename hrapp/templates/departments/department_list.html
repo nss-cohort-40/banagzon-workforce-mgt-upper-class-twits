@@ -4,13 +4,13 @@
 
 <ol>
   {% for department in all_departments %}
-  <li>
-    <a href="{% url 'hrapp:department' department.id %}">
-      {{ department.department_name }}
-    </a>
-    Budget: {{department.department_budget}}
-    Department Size: {{ department.headcount }}
-  </li>
+    <li>
+      <a href="{% url 'hrapp:department' department.id %}">
+        {{ department.department_name }}
+      </a>
+      Budget: {{department.department_budget}}
+      Department Size: {{ department.employees|length }}
+    </li>
   {% endfor %}
 </ol>
 

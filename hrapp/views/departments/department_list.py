@@ -15,7 +15,6 @@ def create_departmant(cursor, row):
     department.department_budget = _row['department_budget']
 
     department.employees = []
-    department.headcount = 0
 
     employee = Employee()
     employee.id = _row["id"]
@@ -54,9 +53,10 @@ def department_list(request):
 
             for (department, employee) in dataset:
                 if department.id not in all_departments:
-                    # NEED TO += 1 ONLY FOR EMPLOYEES IN OBJECT
                     all_departments[department.id] = department
-                    all_departments[department.id].employees.append(employee)
+                    if employee.department_id != None:
+                        all_departments[department.id].employees.append(
+                            employee)
                 else:
                     all_departments[department.id].employees.append(employee)
 
