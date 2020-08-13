@@ -18,5 +18,6 @@ urlpatterns = [
     path('departments/<int:department_id>',
          department_details, name='department'),
     path('departments/', department_list, name='department_list'),
+    path('trainings', training_program_list, name='training_program_list'),
     path('computers/', computer_list, name='computer_list')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
