@@ -1,0 +1,10 @@
+{% extends 'shared/base.html' %} {% block content %}
+
+<section class="computer-details">
+  <h1>{{ computer.make }}</h1>
+  <h2>Pruchased on: {{ computer.purchase_date }}</h2>
+  <h2>Decommission on: {{ computer.decommission_date }}</h2>
+  <h2>Manufacturer: {{ computer.manufacturer }}</h2>
+</section>
+
+{% endblock %}
