@@ -6,5 +6,10 @@
   <h2>Decommission on: {{ computer.decommission_date }}</h2>
   <h2>Manufacturer: {{ computer.manufacturer }}</h2>
 </section>
-
-{% endblock %}
+{% if user.is_authenticated %}
+<form action="{% url 'hrapp:computer' computer.id %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="actual_method" value="DELETE" />
+  <button>Delete</button>
+</form>
+{% endif %} {% endblock %}
