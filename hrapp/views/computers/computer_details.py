@@ -11,13 +11,14 @@ def get_computer(computer_id):
         db_cursor = conn.cursor()
         db_cursor.execute("""
         SELECT
-            c.id,
+                c.id,
                 c.make,
                 c.purchase_date,
                 c.decommission_date,
                 c.manufacturer
             from hrapp_computer c
-        """, (comouter_id,))
+        WHERE c.id = ?
+        """, (computer_id,))
 
         return db_cursor.fetchone()
 

@@ -21,5 +21,6 @@ urlpatterns = [
     path('trainings', training_program_list, name='training_program_list'),
     path('computers/form', computer_form, name='computer_form'),
     path('trainings/training_form', training_form, name='training_form'),
-    path('computers/', computer_list, name='computer_list')
+    path('computers/', computer_list, name='computer_list'),
+    path('computers/<int:computer_id>/', computer_details, name='computer')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

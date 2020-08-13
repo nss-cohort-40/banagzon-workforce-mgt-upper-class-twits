@@ -12,4 +12,13 @@ SELECT
   d.department_name
 FROM hrapp_employee e
   JOIN hrapp_department d ON e.department_id = d.id
-WHERE e.id = 1
+WHERE e.id = 1;
+
+        SELECT
+                c.id,
+                c.make,
+                c.purchase_date,
+                c.decommission_date,
+                c.manufacturer
+            from hrapp_computer c
+          
