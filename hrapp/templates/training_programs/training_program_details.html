@@ -1,0 +1,19 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+  <section class="training_program-details">
+    <h1>{{ training_program.training_title }} </h1>
+    <p>Start Date: {{ training_program.start_date }}</p>
+    <p>End Date: {{ training_program.end_date }}</p>
+    <p>Maximum Attendees: {{ training_program.max_capacity }}</p>
+  </section>
+
+  {% comment %} <section id="training_program-actions" style="display:flex;">
+    <form action="{% url 'hrapp:training_program_edit_form' training_program.id %}" method="GET">
+            {% csrf_token %}
+            <button>Edit</button>
+        </form>
+  </section> {% endcomment %}
+
+{% endblock %}
+
