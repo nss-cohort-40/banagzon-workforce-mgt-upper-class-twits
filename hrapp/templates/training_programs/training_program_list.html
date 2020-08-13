@@ -1,9 +1,9 @@
 {% extends 'shared/base.html' %} 
 {% block content %}
 
-<h1>Training Programs</h1>
+<h1>Future Scheduled Training Programs</h1>
+<p> Click program title for details </p>
 
-<a href="{% url 'hrapp:training_form' %}">Add New Training Program</a>
 <ol>
   {% for training_program in training_programs %}
   <li>
@@ -17,5 +17,6 @@
   </li>
   {% endfor %}
 </ol>
+<h3><a href="{% url 'hrapp:training_form' %}">Add New Training Program</a></h3>
 
 {% endblock content %}
