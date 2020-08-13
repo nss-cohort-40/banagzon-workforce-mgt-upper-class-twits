@@ -22,8 +22,9 @@ def department_list(request):
             left join hrapp_employee e ON e.department_id = d.id
             """)
 
-            all_departments = []
             dataset = db_cursor.fetchall()
+
+            all_departments = {}
 
             for row in dataset:
                 department = Department()
