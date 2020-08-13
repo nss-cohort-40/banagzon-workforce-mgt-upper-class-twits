@@ -2,6 +2,7 @@ import sqlite3
 from django.shortcuts import render
 from django.urls import reverse
 from django.shortcuts import redirect
+import datetime
 from hrapp.models import TrainingProgram
 from ..connection import Connection
 
@@ -20,6 +21,7 @@ def training_program_list(request):
                 t.end_date,
                 t.max_capacity
             from hrapp_trainingprogram t
+            where t.start_date >= datetime('now')
             """)
 
             all_training_programs = []

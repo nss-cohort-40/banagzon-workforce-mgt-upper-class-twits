@@ -6,12 +6,13 @@
 <ol>
   {% for training_program in training_programs %}
   <li>
-
-      {{ training_program.training_title }}
+  <a class="training--title" href="{% url 'hrapp:training_program' training_program.id %}"> 
+      {{ training_program.training_title }} 
+      </a>
     
     {% comment %} Start Date: {{training_program.start_date}} {% endcomment %}
 
-    Maximum Number of Attendees: {{training_program.max_capacity}}
+    {% comment %} Maximum Number of Attendees: {{training_program.max_capacity}} {% endcomment %}
   </li>
   {% endfor %}
 </ol>
