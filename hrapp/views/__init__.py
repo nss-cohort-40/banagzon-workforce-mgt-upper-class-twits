@@ -8,4 +8,5 @@ from .departments.department_list import department_list
 from .departments.department_details import department_details
 from .training_programs.training_program_list import training_program_list
 from .connection import Connection
+from .computers.computer_form import computer_form
 from .computers.computer_list import computer_list

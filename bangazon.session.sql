@@ -1,14 +1,23 @@
-insert into hrapp_department (department_name, department_budget) values ("Human Resources", 100560);
+insert into hrapp_department
+    (department_name, department_budget)
+values
+    ("Human Resources", 100560);
 
 select
-            d.id,
-            d.department_name,
-            d.department_budget
-        from hrapp_department d;
+    d.id,
+    d.department_name,
+    d.department_budget
+from hrapp_department d;
 
-insert into hrapp_employee (first_name, last_name, start_date, is_supervisor, department_id) values ("Jane", "Doe", 03/20/2005, False, 1);
+insert into hrapp_employee
+    (first_name, last_name, start_date, is_supervisor, department_id)
+values
+    ("Jane", "Doe", 03/20/2005, False, 1);
 
-insert into hrapp_employee (first_name, last_name, start_date, is_supervisor, department_id) values ("John", "Smoth", 03/20/2005, False, 1);
+insert into hrapp_employee
+    (first_name, last_name, start_date, is_supervisor, department_id)
+values
+    ("John", "Smoth", 03/20/2005, False, 1);
 INSERT INTO hrapp_department
     (department_name, department_budget)
 VALUES
@@ -18,4 +27,12 @@ VALUES
 
 UPDATE hrapp_employee
 SET department_id = 1
-WHERE id = 1
+WHERE id = 1;
+
+
+INSERT INTO hrapp_computer
+    (
+    manufacturer, make, purchase_date, decommission_date
+    )
+VALUES
+    ("honda", "accord", "1990-8-8", "1990-10-10");
