@@ -18,6 +18,11 @@ class Employee(models.Model):
     class Meta:
         verbose_name = ("Employee")
         verbose_name_plural = ("Employees")
+        permissions = (
+
+            ("can_create_update_delete", "Can create, update, or delete"),
+            
+        )
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

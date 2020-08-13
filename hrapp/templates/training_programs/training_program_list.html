@@ -3,7 +3,9 @@
 
 <h1>Training Programs</h1>
 
+{% if user.is_authenticated %}
 <a href="{% url 'hrapp:training_form' %}">Add New Training Program</a>
+{% endif %}
 <ol>
   {% for training_program in training_programs %}
   <li>
