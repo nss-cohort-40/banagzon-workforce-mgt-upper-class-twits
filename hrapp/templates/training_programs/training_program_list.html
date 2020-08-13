@@ -3,15 +3,16 @@
 
 <h1>Training Programs</h1>
 
+<a href="{% url 'hrapp:training_form' %}">Add New Training Program</a>
 <ol>
   {% for training_program in training_programs %}
   <li>
 
-      {{ training_program.training_title }}
+    <h3>{{ training_program.training_title }}</h3>
     
     {% comment %} Start Date: {{training_program.start_date}} {% endcomment %}
 
-    Maximum Number of Attendees: {{training_program.max_capacity}}
+    <p>Maximum Number of Attendees: {{training_program.max_capacity}}</p>
   </li>
   {% endfor %}
 </ol>
