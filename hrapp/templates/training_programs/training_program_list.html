@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %} 
 {% block content %}
 
-<h1>Future Scheduled Training Programs</h1>
+<h1>Scheduled Training Programs</h1>
 <p> Click program title for details </p>
 
 <ol>
@@ -11,12 +11,10 @@
       {{ training_program.training_title }} 
       </a>
     
-    {% comment %} Start Date: {{training_program.start_date}} {% endcomment %}
-
-    {% comment %} Maximum Number of Attendees: {{training_program.max_capacity}} {% endcomment %}
   </li>
   {% endfor %}
 </ol>
 <h3><a href="{% url 'hrapp:training_form' %}">Add New Training Program</a></h3>
+<a href="{% url 'hrapp:training_program_past' %}">View Past Training Programs</a>
 
 {% endblock content %}

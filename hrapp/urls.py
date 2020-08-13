@@ -19,6 +19,7 @@ urlpatterns = [
          department_details, name='department'),
     path('departments/', department_list, name='department_list'),
     path('trainings', training_program_list, name='training_program_list'),
+    path('trainings/past', training_program_past, name='training_program_past'),
     path('trainings/<int:training_program_id>/', training_program_details, name='training_program'),
     path('computers/form', computer_form, name='computer_form'),
     path('trainings/training_form', training_form, name='training_form'),
