@@ -20,9 +20,10 @@ urlpatterns = [
     path('departments/', department_list, name='department_list'),
     path('trainings', training_program_list, name='training_program_list'),
     path('trainings/past', training_program_past, name='training_program_past'),
-    path('trainings/<int:training_program_id>/', training_program_details, name='training_program'),
-    path('computers/form', computer_form, name='computer_form'),
+    path('trainings/<int:training_program_id>/',
+         training_program_details, name='training_program'),
     path('trainings/training_form', training_form, name='training_form'),
+    path('computers/form', computer_form, name='computer_form'),
     path('computers/', computer_list, name='computer_list'),
     path('computers/<int:computer_id>/', computer_details, name='computer')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
