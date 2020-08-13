@@ -1,9 +1,11 @@
 import sqlite3
 from django.shortcuts import render
 from django.urls import reverse
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from ..connection import Connection
 from hrapp.models import Computer
+
 
 def computer_list(request):
     if request.method == 'GET':
@@ -50,10 +52,10 @@ def computer_list(request):
             db_cursor.execute("""
                 INSERT INTO hrapp_computer
                 (
-                    manufacturer, make, purchase_date
+                    manufacturer, make, purchase_date, decommission_date
                     )
-                VALUES (?, ?, ?)
+                VALUES (?, ?, ?, ?)
                 """,
-                (form_data['manufacturer'], form_data['make'], form_data['purchase_date']))
+                              (form_data['manufacturer'], form_data['make'], form_data['purchase_date'], form_data['decommission_date']))
 
             return redirect(reverse('hrapp:computer_list'))
