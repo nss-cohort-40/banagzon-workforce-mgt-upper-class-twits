@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Bangazon</title>
+  </head>
+  <body>
+    <h1>Computer Form</h1>
+
+    <form action="{% url 'hrapp:computer_list' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+        <label for="make">Make: </label>
+        <input id="make" type="text" name="make" />
+      </fieldset>
+      <fieldset>
+        <label for="purchase_date">Purchase Date: </label>
+        <input id="purchase_date" type="date" name="purchase_date" />
+      </fieldset>
+      <fieldset>
+        <label for="decommission_date">Decommission Date: </label>
+        <input id="decommission_date" type="date" name="decommission_date" />
+      </fieldset>
+      <fieldset>
+        <label for="manufacturer">Manufacturer: </label>
+        <input id="manufacturer" type="text" name="manufacturer" />
+      </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+  </body>
+</html>

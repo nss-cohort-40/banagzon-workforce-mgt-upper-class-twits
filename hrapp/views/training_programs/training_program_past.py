@@ -7,7 +7,7 @@ from hrapp.models import TrainingProgram
 from ..connection import Connection
 
 
-def training_program_list(request):
+def training_program_past(request):
     if request.method == 'GET':
         with sqlite3.connect(Connection.db_path) as conn:
             conn.row_factory = sqlite3.Row
@@ -21,7 +21,7 @@ def training_program_list(request):
                 t.end_date,
                 t.max_capacity
             from hrapp_trainingprogram t
-            where t.start_date >= datetime('now')
+            where t.start_date < datetime('now')
             """)
 
             all_training_programs = []
@@ -37,26 +37,9 @@ def training_program_list(request):
                 
                 all_training_programs.append(training_program)
             print(all_training_programs)
-        template = 'training_programs/training_program_list.html'
+        template = 'training_programs/training_program_past.html'
         context = {
             'training_programs': all_training_programs
         }
     
         return render(request, template, context)
-
-    elif request.method == 'POST':
-        form_data = request.POST
-
-        with sqlite3.connect(Connection.db_path) as conn:
-            db_cursor = conn.cursor()
-
-            db_cursor.execute("""
-            INSERT INTO hrapp_trainingprogram
-            (
-                training_title, start_date, end_date, max_capacity
-            )
-            VALUES (?, ?, ?, ?)
-            """,
-            (form_data['training_title'], form_data['start_date'], form_data['end_date'], form_data['max_capacity']))
-
-        return redirect(reverse('hrapp:training_program_list'))

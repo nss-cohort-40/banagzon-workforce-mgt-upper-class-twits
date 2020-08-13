@@ -2,14 +2,19 @@
 
 <h1>Departments</h1>
 
+{% if user.is_authenticated %}
+  <a href="{% url 'hrapp:department_form'%}">Add New Department</a>
+{% endif %}
+
 <ol>
   {% for department in all_departments %}
-  <li>
-    <a href="{% url 'hrapp:department' department.id %}">
-      {{ department.department_name }}
-    </a>
-    Budget: {{department.department_budget}}
-  </li>
+    <li>
+      <a href="{% url 'hrapp:department' department.id %}">
+        {{ department.department_name }}
+      </a>
+      Budget: {{department.department_budget}}
+      Department Size: {{ department.employees|length }}
+    </li>
   {% endfor %}
 </ol>
 
