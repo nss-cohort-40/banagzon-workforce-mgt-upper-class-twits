@@ -3,7 +3,6 @@ from django.shortcuts import render, reverse, redirect
 from hrapp.models import Department
 from ..connection import Connection
 
-
 def get_department(department_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = sqlite3.Row
