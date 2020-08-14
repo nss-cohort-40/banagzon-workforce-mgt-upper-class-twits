@@ -8,12 +8,14 @@
     <p>Maximum Attendees: {{ training_program.max_capacity }}</p>
   </section>
 
-  {% comment %} <section id="training_program-actions" style="display:flex;">
-    <form action="{% url 'hrapp:training_program_edit_form' training_program.id %}" method="GET">
-            {% csrf_token %}
-            <button>Edit</button>
-        </form>
-  </section> {% endcomment %}
+{% if user.is_authenticated %}
+  <section id="training_program-actions" style="display:flex;">
+    <form action="{% url 'hrapp:training_edit_form' training_program.id %}" method="GET">
+      {% csrf_token %}
+      <button>Edit</button>
+    </form>
+  </section>
+{% endif %}
 
 {% endblock %}
 
