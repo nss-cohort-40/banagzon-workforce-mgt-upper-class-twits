@@ -26,7 +26,22 @@ def get_department(department_id):
         WHERE d.id = ?
         """, (department_id,))
 
-        return db_cursor.fetchone()
+        all_employees = db_cursor.fetchall()
+
+        dept = {}
+
+        for (department, employee) in all_employees:
+            if department.id not in dept:
+                dept[department.id] = department
+                # if employee.department_id != None:
+                dept[department.id].employees.append(
+                    employee)
+            else:
+                dept[department.id].employees.append(
+                    employee)
+
+        print(dept)
+        return dept
 
 
 def department_details(request, department_id):
@@ -34,4 +49,4 @@ def department_details(request, department_id):
         department = get_department(department_id)
         template = "departments/department_details.html"
 
-        return render(request, template, {"department": department.values()})
+        return render(request, template, {"department": department})
