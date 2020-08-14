@@ -37,7 +37,7 @@
             <label for="department_id">Department: </label>
             <select id="department_id" type="text" name="department_id">
                     {% for department in all_departments %}
-                        <option {% if department.id == emploeyee.department_id %}selected{% endif %} value="{{ department.id }}">{{ department.department_name }}</option>
+                        <option {% if department.id == employee.department_id %}selected{% endif %} value="{{ department.id }}">{{ department.department_name }}</option>
                     {% endfor %}
             </select>
         </fieldset>
