@@ -9,6 +9,14 @@
 
 <h1>Scheduled Training Programs</h1>
 
+{% if user.is_authenticated %}
+  <section style="display:flex;">
+    <form action="{% url 'hrapp:training_form' %}" method="GET">
+            {% csrf_token %}
+            <button class="button">Add New Training</button>
+        </form>
+  </section>
+{% endif %} 
 
 <ol class="list">
   {% for training_program in training_programs %}
@@ -20,14 +28,6 @@
   </li>
   {% endfor %}
 </ol>
-{% if user.is_authenticated %}
-  <section style="display:flex;">
-    <form action="{% url 'hrapp:training_form' %}" method="GET">
-            {% csrf_token %}
-            <button class="button">Add New Training</button>
-        </form>
-  </section>
-{% endif %} 
 
   <section style="display:flex;">
     <form action="{% url 'hrapp:training_program_past' %}" method="GET">
