@@ -4,7 +4,6 @@ from hrapp.models import TrainingProgram
 from .training_program_details import get_training_program
 from ..connection import Connection
 
-
 def training_form(request):
     if request.method == 'GET':
         template = 'training_programs/training_program_form.html'

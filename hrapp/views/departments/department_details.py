@@ -4,7 +4,6 @@ from hrapp.models import Department, Employee
 from .department_list import create_departmant
 from ..connection import Connection
 
-
 def get_department(department_id):
     with sqlite3.connect(Connection.db_path) as conn:
         conn.row_factory = create_departmant
