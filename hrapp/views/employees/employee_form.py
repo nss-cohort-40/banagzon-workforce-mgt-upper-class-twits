@@ -24,7 +24,6 @@ def get_departments():
 
         return db_cursor.fetchall()
 
-@login_required
 def employee_form(request):
     if request.method == 'GET':
         departments = get_departments()
@@ -35,7 +34,6 @@ def employee_form(request):
 
         return render(request, template, context)
 
-@login_required
 def employee_edit_form(request, employee_id):
 
     if request.method == 'GET':
