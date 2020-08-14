@@ -51,3 +51,22 @@ def training_program_details(request, training_program_id):
                       form_data['max_capacity'], training_program_id))
 
                 return redirect(reverse('hrapp:training_program', args=[training_program_id]))
+
+        if request.method == 'POST':
+            form_data = request.POST
+            
+            #Check if this POST is for deleting a training program
+
+            if (
+                "actual_method" in form_data
+                and form_data["actual_method"] == "DELETE"
+            ):
+                with sqlite3.connect(Connection.db_path) as conn:
+                    db_cursor = conn.cursor()
+
+                    db_cursor.execute("""
+                    DELETE FROM hrapp_trainingprogram
+                    WHERE id = ?
+                    """, (training_program_id,))
+
+                return redirect(reverse('hrapp:training_program_list'))
