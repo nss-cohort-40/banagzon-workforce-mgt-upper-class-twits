@@ -1,4 +1,11 @@
-{% extends 'shared/base.html' %} {% block content %}
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'styles/lists.css'%}" />
+{% endblock css %}
+
+{% block content %}
 
 <section class="department-details">
   <h1>{{ department.department_name }}</h1>
@@ -7,5 +14,10 @@
     <li>{{ employee.first_name }}</li>
   {% endfor %} {% endcomment %}
 </section>
+<section style="display:flex;">
+    <form action="{% url 'hrapp:department_list' %}" method="GET">
+            {% csrf_token %}
+            <button class="button">Back to Department List</button>
+    </form>
 
 {% endblock %}

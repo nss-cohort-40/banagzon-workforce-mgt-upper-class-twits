@@ -7,10 +7,15 @@
 
 {% block content %}
 <h1>Employees</h1>
-
 {% if user.is_authenticated %}
-<a href="{% url 'hrapp:employee_form' %}">Add New Employee</a>
+  <section style="display:flex;">
+    <form action="{% url 'hrapp:employee_form' %}" method="GET">
+            {% csrf_token %}
+            <button class="button">Add Employee</button>
+        </form>
+  </section>
 {% endif %}
+
 <ol class="employee-list">
 <ol class="list">
 {% for employee in employees %}

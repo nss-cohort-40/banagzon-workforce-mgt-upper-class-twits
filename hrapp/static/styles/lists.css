@@ -31,6 +31,7 @@ h5 {
 }
 
 .card {
+  background-color: rgba(232, 237, 237, 0.824);
   position: relative;
 }
 
@@ -64,4 +65,8 @@ h5 {
   top: 65px;
   font-size: smaller;
   font-weight: 400;
+}
+
+.button {
+  background-color: rgb(147, 201, 248);
 }
