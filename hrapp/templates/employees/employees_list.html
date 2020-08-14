@@ -10,12 +10,9 @@
 
 {% if user.is_authenticated %}
 <a href="{% url 'hrapp:employee_form' %}">Add New Employee</a>
-<<<<<<< HEAD
 {% endif %}
 <ol class="employee-list">
-=======
 <ol class="list">
->>>>>>> master
 {% for employee in employees %}
     <li class="card">
         <a class="details-link" href="{% url 'hrapp:employee' employee.id %}">
