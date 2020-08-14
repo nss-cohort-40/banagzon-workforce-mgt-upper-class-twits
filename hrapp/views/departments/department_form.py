@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from ..connection import Connection
 from hrapp.models import Department
 
-# @login_required
 def department_form(request):
     if request.method == 'GET':
        
