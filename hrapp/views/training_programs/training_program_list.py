@@ -34,14 +34,14 @@ def training_program_list(request):
                 training_program.start_date = row['start_date']
                 training_program.end_date = row['end_date']
                 training_program.max_capacity = row['max_capacity']
-                
+
                 all_training_programs.append(training_program)
-            print(all_training_programs)
+
         template = 'training_programs/training_program_list.html'
         context = {
             'training_programs': all_training_programs
         }
-    
+
         return render(request, template, context)
 
     elif request.method == 'POST':
@@ -57,6 +57,6 @@ def training_program_list(request):
             )
             VALUES (?, ?, ?, ?)
             """,
-            (form_data['training_title'], form_data['start_date'], form_data['end_date'], form_data['max_capacity']))
+                              (form_data['training_title'], form_data['start_date'], form_data['end_date'], form_data['max_capacity']))
 
         return redirect(reverse('hrapp:training_program_list'))
