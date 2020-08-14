@@ -1,26 +1,35 @@
 {% extends 'shared/base.html' %} 
 {% block content %}
 
-<form action="{% url 'hrapp:training_program_list' %}" method="POST">
+{% if training_program.id is not None %}
+    <form action="{% url 'hrapp:training_program' training_program.id%}" method="POST">
+{% else %}
+    <form action="{% url 'hrapp:training_program_list' %}" method="POST">
+{% endif %}
     {% csrf_token %}
     <fieldset>
         <label for="training_title">Title: </lable>
-        <input id="training_title" type="text" name="training_title">
+        <input id="training_title" type="text" name="training_title" value="{{ training_program.training_title }}">
     </fieldset>
     <fieldset>
         <label for="start_date">Start Date: </label>
-        <input id="start_date" type="date" name="start_date">
+        <input id="start_date" type="date" name="start_date" value={{ training_program.start_date }}>
     </fieldset>
     <fieldset>
         <label for="end_date">End Date: </label>
-        <input id="end_date" type="date" name="end_date">
+        <input id="end_date" type="date" name="end_date" value={{ training_program.end_date }}>
     </fieldset>
     <fieldset>
         <label for="max_capacity">Max Capacity: </label>
-        <input id="max_capacity" type="number" name="max_capacity">
+        <input id="max_capacity" type="number" name="max_capacity" value={{ training_program.max_capacity }}>
     </fieldset>
 
-    <input type="submit" value="Add It" />
+{% if training_program.id is not None %}
+    <input type="hidden" name="actual_method" value="PUT">
+    <input type="submit" value="Update" />
+{% else %}
+    <input type="submit" values="Add It" />
+{% endif %}
 </form>
 
 

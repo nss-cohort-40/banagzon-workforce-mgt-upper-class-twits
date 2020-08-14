@@ -1,17 +1,17 @@
-.employee-list {
+.list {
   display: flex;
   list-style-type: none;
   padding-left: 0;
 }
 
-.employee-list > li {
+.list > li {
   height: 150px;
   width: 110px;
   box-shadow: 1px 1px 3px rgb(59, 59, 58);
   margin: 10px;
 }
 
-.employee-list > li:hover {
+.list > li:hover {
   box-shadow: 1px 1px 10px rgb(59, 59, 58);
 }
 
@@ -30,7 +30,7 @@ h5 {
   font-style: italic;
 }
 
-.employee-card {
+.card {
   position: relative;
 }
 
@@ -51,4 +51,17 @@ h5 {
 .employee-department {
   position: relative;
   top: 80px;
+}
+
+.department-size {
+  position: relative;
+  top: 70px;
+}
+
+.budget {
+  margin: 0 0 5px 0;
+  position: relative;
+  top: 65px;
+  font-size: smaller;
+  font-weight: 400;
 }

@@ -52,9 +52,7 @@ def employee_details(request, employee_id):
                     is_supervisor = ?,
                     department_id = ?
                 WHERE id = ?
-                """,
-                (
-                    form_data['first_name'], form_data['last_name'], form_data['start_date'], form_data['is_supervisor'], form_data["department_id"], employee_id
-                ))
+                """, (form_data['first_name'], form_data['last_name'], form_data['start_date'],
+                      form_data['is_supervisor'], form_data["department_id"], employee_id))
 
-            return redirect(reverse('hrapp:employee_list'))
+            return redirect(reverse('hrapp:employee', args=[employee_id]))
