@@ -1,4 +1,11 @@
-{% extends 'shared/base.html' %} {% block content %}
+{% extends 'shared/base.html' %} 
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'styles/lists.css'%}" />
+{% endblock css %}
+
+{% block content %}
 
 <h1>Departments</h1>
 
@@ -6,14 +13,14 @@
   <a href="{% url 'hrapp:department_form'%}">Add New Department</a>
 {% endif %}
 
-<ol>
+<ol class="list">
   {% for department in all_departments %}
-    <li>
-      <a href="{% url 'hrapp:department' department.id %}">
-        {{ department.department_name }}
+    <li class="card">
+      <a class="details-link department-name" href="{% url 'hrapp:department' department.id %}">
+        <h3 class="deptartment-name">{{ department.department_name }}</h3>
       </a>
-      Budget: {{department.department_budget}}
-      Department Size: {{ department.employees|length }}
+      <h3 class="budget">Budget: ${{department.department_budget}}</h3>
+      <h5 class="department-size">Employees: {{ department.employees|length }}</h5>
     </li>
   {% endfor %}
 </ol>

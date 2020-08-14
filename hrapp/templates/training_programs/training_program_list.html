@@ -14,7 +14,6 @@
   </li>
   {% endfor %}
 </ol>
-
 {% if user.is_authenticated %}
 <h3><a href="{% url 'hrapp:training_form' %}">Add New Training Program</a></h3>
 {% endif %}

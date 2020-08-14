@@ -40,7 +40,7 @@ def computer_list(request):
         context = {
             'computers': all_computers
         }
-        print(all_computers)
+
         return render(request, template, context)
 
     elif request.method == 'POST':

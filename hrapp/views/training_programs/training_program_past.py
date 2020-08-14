@@ -34,12 +34,12 @@ def training_program_past(request):
                 training_program.start_date = row['start_date']
                 training_program.end_date = row['end_date']
                 training_program.max_capacity = row['max_capacity']
-                
+
                 all_training_programs.append(training_program)
-            print(all_training_programs)
+
         template = 'training_programs/training_program_past.html'
         context = {
             'training_programs': all_training_programs
         }
-    
+
         return render(request, template, context)

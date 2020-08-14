@@ -25,8 +25,7 @@ def get_computers():
         return db_cursor.fetchall()
 
 
-print("THis Is working")
-
+@login_required
 def computer_form(request):
     if request.method == 'GET':
         computers = get_computers()

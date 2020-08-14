@@ -1,3 +1,7 @@
+from .computers.computer_details import computer_details
+from .computers.computer_list import computer_list
+from .computers.computer_form import computer_form
+from .connection import Connection
 from .employees.employee_list import employee_list
 from .employees.employee_details import employee_details
 from .home import home
@@ -9,8 +13,4 @@ from .departments.department_details import department_details
 from .training_programs.training_program_list import training_program_list
 from .training_programs.training_program_past import training_program_past
 from .training_programs.training_program_details import training_program_details
-from. training_programs.training_program_form import training_form
-from .connection import Connection
-from .computers.computer_form import computer_form
-from .computers.computer_list import computer_list
-from .computers.computer_details import computer_details
+from. training_programs.training_program_form import training_form, training_edit_form
