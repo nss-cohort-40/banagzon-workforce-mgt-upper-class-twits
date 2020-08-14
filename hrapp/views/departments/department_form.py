@@ -3,7 +3,6 @@ from django.shortcuts import render
 from ..connection import Connection
 from hrapp.models import Department
 
-
 def department_form(request):
     if request.method == 'GET':
 

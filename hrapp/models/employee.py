@@ -18,7 +18,7 @@ class Employee(models.Model):
     class Meta:
         verbose_name = ("Employee")
         verbose_name_plural = ("Employees")
-
+        
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 
