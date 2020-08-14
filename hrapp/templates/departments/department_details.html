@@ -1,7 +1,7 @@
 {% extends 'shared/base.html' %} {% block content %}
 
 <section class="department-details">
-  <h1>{{ department.department_name }}</h1>
+  <h1>{{ department }}</h1>
   <h2>Budget: {{ department.department_budget }}</h2>
   {% for employee in department.employees %}
     <li>{{ employee.first_name }}</li>
