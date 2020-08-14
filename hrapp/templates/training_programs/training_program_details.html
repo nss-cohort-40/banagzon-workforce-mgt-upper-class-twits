@@ -1,4 +1,9 @@
 {% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %}
 {% block content %}
 
   <section class="training_program-details">
@@ -12,7 +17,7 @@
   <section id="training_program-actions" style="display:flex;">
     <form action="{% url 'hrapp:training_edit_form' training_program.id %}" method="GET">
       {% csrf_token %}
-      <button>Edit</button>
+      <button class="button">Edit</button>
     </form>
   </section>
 {% endif %}

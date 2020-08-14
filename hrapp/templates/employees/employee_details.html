@@ -1,4 +1,9 @@
 {% extends 'shared/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %}
 {% block content %}
 
   <section class="employee-details">
@@ -11,7 +16,7 @@
   <section id="employee-actions" style="display:flex;">
     <form action="{% url 'hrapp:employee_edit_form' employee.id %}" method="GET">
             {% csrf_token %}
-            <button>Edit</button>
+            <button class="button">Edit</button>
         </form>
   </section>
 

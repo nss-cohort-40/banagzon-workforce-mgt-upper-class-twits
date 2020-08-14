@@ -21,7 +21,7 @@ def training_program_list(request):
                 t.end_date,
                 t.max_capacity
             from hrapp_trainingprogram t
-            where t.start_date >= datetime('now')
+            where t.start_date >= CURRENT_DATE
             """)
 
             all_training_programs = []

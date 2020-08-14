@@ -1,13 +1,19 @@
 {% extends 'shared/base.html' %} 
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %}
+
 {% block content %}
 
 <h1>Scheduled Training Programs</h1>
-<p> Click program title for details </p>
 
-<ol>
+
+<ol class="list">
   {% for training_program in training_programs %}
-  <li>
-  <a class="training--title" href="{% url 'hrapp:training_program' training_program.id %}"> 
+  <li class="card">
+    <a class="details-link" class="employee-name" href="{% url 'hrapp:training_program' training_program.id %}">  
       {{ training_program.training_title }} 
       </a>
     
@@ -15,8 +21,20 @@
   {% endfor %}
 </ol>
 {% if user.is_authenticated %}
-<h3><a href="{% url 'hrapp:training_form' %}">Add New Training Program</a></h3>
-{% endif %}
-<a href="{% url 'hrapp:training_program_past' %}">View Past Training Programs</a>
+  <section style="display:flex;">
+    <form action="{% url 'hrapp:training_form' %}" method="GET">
+            {% csrf_token %}
+            <button class="button">Add New Training</button>
+        </form>
+  </section>
+{% endif %} 
+
+  <section style="display:flex;">
+    <form action="{% url 'hrapp:training_program_past' %}" method="GET">
+            {% csrf_token %}
+            <button class="button">See Past Programs</button>
+        </form>
+  </section>
+
 
 {% endblock content %}

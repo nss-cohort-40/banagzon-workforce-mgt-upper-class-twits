@@ -1,4 +1,11 @@
-{% extends 'shared/base.html' %} {% block content %}
+{% extends 'shared/base.html' %} 
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'styles/lists.css' %}" />
+{% endblock css %}
+
+{% block content %}
 
 <section class="computer-details">
   <h1>{{ computer.make }}</h1>
@@ -10,6 +17,6 @@
 <form action="{% url 'hrapp:computer' computer.id %}" method="POST">
   {% csrf_token %}
   <input type="hidden" name="actual_method" value="DELETE" />
-  <button>Delete</button>
+  <button class="button">Delete</button>
 </form>
 {% endif %} {% endblock %}
